@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ARX Proventus — Global Vision. Unified Solutions.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1400e8;
+  --blue-dark:#0a0080;
+  --blue-mid:#1a10c0;
+  --blue-light:#e8e6ff;
+  --blue-pale:#f0efff;
+  --gold:#c9a84c;
+  --gold-light:#e2c97e;
+  --white:#ffffff;
+  --off:#f7f7fb;
+  --border:#e2e0f0;
+  --text:#0e0a2e;
+  --text-mid:#3a3560;
+  --text-muted:#8a88aa;
+  --nav-h:72px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--off)}
+::-webkit-scrollbar-thumb{background:var(--blue)}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5rem;
+  background:rgba(255,255,255,0.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+.nav-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;font-weight:600;letter-spacing:0.14em;
+  color:var(--blue-dark);text-decoration:none;
+  display:flex;align-items:center;gap:0.7rem;
+}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.nav-links{display:flex;gap:2.6rem;list-style:none}
+.nav-links a{
+  font-size:0.73rem;font-weight:500;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--text-mid);
+  text-decoration:none;transition:color 0.25s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:1.5px;background:var(--blue);
+  transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
+}
+.nav-links a:hover{color:var(--blue)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--white);
+  background:var(--blue);padding:0.6rem 1.6rem;
+  text-decoration:none;transition:background 0.3s;
+}
+.nav-cta:hover{background:var(--blue-dark)}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  background:var(--white);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding-top:var(--nav-h);
+  position:relative;overflow:hidden;
+}
+/* Subtle grid lines */
+#hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(20,0,232,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(20,0,232,0.04) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+/* Left blue accent bar */
+#hero::after{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:4px;background:var(--blue);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.hero-logo{
+  width:min(460px,75vw);height:auto;display:block;
+  animation:riseIn 1s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes riseIn{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+.hero-line{
+  width:1px;height:56px;
+  background:linear-gradient(to bottom,var(--blue),transparent);
+  margin:2.2rem auto;
+  animation:riseIn 1s 0.3s cubic-bezier(0.22,1,0.36,1) both;
+}
+.hero-eyebrow{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.48em;
+  text-transform:uppercase;color:var(--blue);
+  animation:riseIn 1s 0.45s cubic-bezier(0.22,1,0.36,1) both;
+}
+.hero-heading{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;font-style:italic;
+  color:var(--text);line-height:1.25;margin-top:1.3rem;
+  animation:riseIn 1s 0.6s cubic-bezier(0.22,1,0.36,1) both;
+}
+.hero-heading strong{font-style:normal;font-weight:600;color:var(--blue)}
+.hero-btns{
+  display:flex;gap:1rem;margin-top:2.8rem;flex-wrap:wrap;justify-content:center;
+  animation:riseIn 1s 0.78s cubic-bezier(0.22,1,0.36,1) both;
+}
+.btn-solid{
+  background:var(--blue);color:var(--white);
+  font-size:0.72rem;font-weight:500;letter-spacing:0.18em;
+  text-transform:uppercase;padding:0.9rem 2.2rem;
+  text-decoration:none;transition:background 0.3s;
+}
+.btn-solid:hover{background:var(--blue-dark)}
+.btn-outline{
+  background:transparent;color:var(--blue);
+  border:1.5px solid var(--blue);
+  font-size:0.72rem;font-weight:500;letter-spacing:0.18em;
+  text-transform:uppercase;padding:0.9rem 2.2rem;
+  text-decoration:none;transition:all 0.3s;
+}
+.btn-outline:hover{background:var(--blue);color:var(--white)}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+  font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);
+  animation:riseIn 1s 1s ease both;
+}
+.scroll-bar{
+  width:1px;height:42px;
+  background:linear-gradient(to bottom,var(--blue),transparent);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:0.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.25)}}
+
+/* STAT BAR */
+.stat-bar{
+  background:var(--blue);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-cell{
+  padding:2.2rem 1.5rem;text-align:center;
+  border-right:1px solid rgba(255,255,255,0.12);
+}
+.stat-cell:last-child{border-right:none}
+.stat-n{
+  font-family:'Playfair Display',serif;
+  font-size:2.4rem;font-weight:400;color:var(--white);line-height:1;
+}
+.stat-l{
+  font-size:0.63rem;font-weight:400;letter-spacing:0.18em;
+  text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:0.5rem;
+}
+
+/* SHARED SECTION */
+.sec{padding:7rem 5rem}
+.sec.off{background:var(--off)}
+
+.eyebrow{
+  font-size:0.67rem;font-weight:500;letter-spacing:0.38em;
+  text-transform:uppercase;color:var(--blue);
+  display:flex;align-items:center;gap:0.9rem;margin-bottom:1.1rem;
+}
+.eyebrow::before{content:'';width:26px;height:1.5px;background:var(--blue);flex-shrink:0}
+.eyebrow.light{color:rgba(255,255,255,0.55)}
+.eyebrow.light::before{background:rgba(255,255,255,0.35)}
+
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.8vw,2.9rem);
+  font-weight:400;line-height:1.12;color:var(--text);margin-bottom:1.4rem;
+}
+.sec-title em{font-style:italic;color:var(--blue)}
+.sec-title.light{color:var(--white)}
+.sec-title.light em{color:rgba(255,255,255,0.55)}
+
+.sec-body{
+  font-size:0.88rem;font-weight:300;line-height:2;
+  color:var(--text-mid);max-width:580px;
+}
+.sec-body.light{color:rgba(255,255,255,0.65)}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.img-wrap{position:relative}
+.img-wrap img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.img-wrap::after{
+  content:'';position:absolute;bottom:-16px;right:-16px;
+  width:55%;height:55%;
+  border:2px solid var(--blue);opacity:0.15;pointer-events:none;
+}
+.img-badge{
+  position:absolute;top:2rem;left:-1rem;
+  background:var(--blue);color:var(--white);
+  font-size:0.62rem;font-weight:500;letter-spacing:0.2em;
+  text-transform:uppercase;padding:0.5rem 1.2rem;
+}
+
+/* VISION/MISSION split */
+.vm-split{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.vm-pane{padding:6rem 5rem;border-right:1px solid var(--border)}
+.vm-pane:last-child{border-right:none;background:var(--blue)}
+.vm-icon{
+  width:52px;height:52px;border:1.5px solid var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:2rem;
+}
+.vm-pane:last-child .vm-icon{border-color:rgba(255,255,255,0.3)}
+
+/* SERVICES */
+.services-hdr{text-align:center;margin-bottom:4rem}
+.services-hdr .sec-title{margin:0 auto 1.2rem}
+.services-hdr .sec-body{margin:0 auto;text-align:center}
+.tags{display:flex;flex-wrap:wrap;gap:0.7rem;justify-content:center;margin-top:1.8rem}
+.tag{
+  font-size:0.73rem;font-weight:400;letter-spacing:0.06em;
+  color:var(--blue);border:1px solid var(--blue);
+  padding:0.5rem 1.1rem;transition:all 0.25s;cursor:default;
+}
+.tag:hover{background:var(--blue);color:var(--white)}
+.srv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--border);border-left:1px solid var(--border);
+}
+.srv-card{
+  padding:2.8rem 2.4rem;
+  border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+  transition:background 0.3s;position:relative;overflow:hidden;
+}
+.srv-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--blue);
+  transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
+}
+.srv-card:hover{background:var(--blue-pale)}
+.srv-card:hover::after{transform:scaleX(1)}
+.srv-n{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;font-weight:400;color:var(--blue);
+  opacity:0.1;line-height:1;margin-bottom:1.2rem;
+}
+.srv-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.18rem;font-weight:400;color:var(--text);margin-bottom:0.9rem;
+}
+.srv-card p{font-size:0.82rem;font-weight:300;line-height:1.9;color:var(--text-mid)}
+
+/* MARITIME */
+.mar-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.mar-left{padding:6rem 5rem;background:var(--blue)}
+.mar-right{position:relative}
+.mar-right img{width:100%;height:100%;object-fit:cover;display:block;min-height:520px}
+.mar-right::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(20,0,232,0.25),transparent);
+}
+.mar-pts{margin-top:2.5rem}
+.mar-pt{
+  display:flex;gap:1.2rem;align-items:flex-start;
+  padding:1.3rem 0;border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.mar-pt:last-child{border-bottom:none}
+.mar-bullet{width:6px;height:6px;background:var(--gold-light);flex-shrink:0;margin-top:7px}
+.mar-t{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;color:var(--gold-light);margin-bottom:0.3rem}
+.mar-b{font-size:0.78rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.6)}
+
+/* ELEVATING */
+.elv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:4.5rem}
+.elv-card{
+  background:var(--white);border:1px solid var(--border);
+  padding:2.5rem 2rem;transition:border-color 0.3s,transform 0.3s;
+}
+.elv-card:hover{border-color:var(--blue);transform:translateY(-5px)}
+.elv-num{
+  font-family:'Playfair Display',serif;
+  font-size:3.2rem;font-weight:400;color:var(--blue);
+  opacity:0.09;line-height:1;margin-bottom:1.2rem;
+}
+.elv-card h4{
+  font-family:'Playfair Display',serif;
+  font-size:1.12rem;font-weight:400;color:var(--text);margin-bottom:0.8rem;
+}
+.elv-card p{font-size:0.8rem;font-weight:300;line-height:1.9;color:var(--text-mid)}
+
+/* ADVANTAGE */
+.adv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.adv-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:520px}
+.adv-content{padding:6rem 5rem;background:var(--off)}
+.adv-list{margin-top:2.5rem}
+.adv-row{
+  display:grid;grid-template-columns:40px 1fr;gap:1.2rem;
+  padding:1.3rem 0;border-bottom:1px solid var(--border);align-items:flex-start;
+}
+.adv-row:last-child{border-bottom:none}
+.adv-ico{
+  width:36px;height:36px;border:1px solid var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;color:var(--blue);flex-shrink:0;
+}
+.adv-row h4{font-size:0.82rem;font-weight:500;color:var(--text);margin-bottom:0.3rem}
+.adv-row p{font-size:0.78rem;font-weight:300;line-height:1.85;color:var(--text-mid)}
+
+/* GOVERNANCE */
+.gov-quote{
+  font-family:'Playfair Display',serif;
+  font-size:1.45rem;font-weight:400;font-style:italic;
+  color:var(--blue);line-height:1.6;
+  border-left:3px solid var(--blue);
+  padding:1.1rem 0 1.1rem 1.8rem;
+  margin-top:2.5rem;max-width:460px;
+}
+
+/* CTA */
+#cta{
+  background:var(--blue);padding:7rem 5rem;text-align:center;position:relative;overflow:hidden;
+}
+#cta::before,#cta::after{
+  content:'';position:absolute;border-radius:50%;pointer-events:none;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  border:1px solid rgba(255,255,255,0.07);
+}
+#cta::before{width:900px;height:900px}
+#cta::after{width:580px;height:580px}
+.cta-hed{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:400;
+  color:var(--white);line-height:1.1;margin-bottom:1.4rem;
+  position:relative;z-index:1;
+}
+.cta-hed em{font-style:italic;opacity:0.65}
+.cta-sub{
+  font-size:0.88rem;font-weight:300;line-height:1.9;
+  color:rgba(255,255,255,0.62);max-width:520px;
+  margin:0 auto 3rem;position:relative;z-index:1;
+}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-white{
+  background:var(--white);color:var(--blue);
+  font-size:0.72rem;font-weight:500;letter-spacing:0.18em;
+  text-transform:uppercase;padding:0.95rem 2.4rem;
+  text-decoration:none;transition:all 0.3s;
+}
+.btn-white:hover{background:transparent;color:var(--white);outline:1.5px solid white}
+.btn-ghost-w{
+  background:transparent;color:rgba(255,255,255,0.8);
+  border:1.5px solid rgba(255,255,255,0.4);
+  font-size:0.72rem;font-weight:500;letter-spacing:0.18em;
+  text-transform:uppercase;padding:0.95rem 2.4rem;
+  text-decoration:none;transition:all 0.3s;
+}
+.btn-ghost-w:hover{border-color:white;color:white}
+
+/* CONTACT */
+#contact{display:grid;grid-template-columns:1fr 1.1fr;gap:0}
+.con-left{
+  padding:7rem 5rem;background:var(--off);
+  border-right:1px solid var(--border);
+}
+.con-right{padding:7rem 5rem;background:var(--white)}
+.con-list{list-style:none;margin-top:2.5rem}
+.con-list li{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:0.95rem 0;border-bottom:1px solid var(--border);
+  font-size:0.83rem;font-weight:300;color:var(--text-mid);
+}
+.ci{color:var(--blue);font-size:0.95rem;margin-top:2px;flex-shrink:0;width:18px;text-align:center}
+.con-form{display:flex;flex-direction:column;gap:1.1rem}
+.fg{display:flex;flex-direction:column;gap:0.4rem}
+.fg label{
+  font-size:0.62rem;font-weight:500;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--text-muted);
+}
+.fg input,.fg select,.fg textarea{
+  background:var(--off);border:1px solid var(--border);
+  color:var(--text);font-family:'DM Sans',sans-serif;
+  font-size:0.85rem;font-weight:300;
+  padding:0.85rem 1rem;outline:none;
+  transition:border-color 0.3s;-webkit-appearance:none;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  border-color:var(--blue);background:var(--white);
+}
+.fg select option{background:var(--white)}
+.fg textarea{resize:vertical;min-height:110px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.sub-btn{
+  background:var(--blue);color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  font-size:0.72rem;font-weight:500;letter-spacing:0.18em;
+  text-transform:uppercase;padding:1rem 2.2rem;
+  border:none;cursor:pointer;transition:background 0.3s;align-self:flex-start;
+}
+.sub-btn:hover{background:var(--blue-dark)}
+#form-ok{display:none;font-size:0.78rem;color:#1a7a50;margin-top:0.4rem}
+
+/* FOOTER */
+footer{
+  background:var(--blue-dark);padding:4rem 5rem;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;
+  border-top:3px solid var(--blue);
+}
+.foot-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:400;letter-spacing:0.16em;
+  color:var(--white);margin-bottom:0.9rem;
+}
+.foot-tag{font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.8}
+.fcol h5{
+  font-size:0.62rem;font-weight:500;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--gold-light);margin-bottom:1.2rem;
+}
+.fcol ul{list-style:none}
+.fcol li{margin-bottom:0.6rem}
+.fcol a{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.48);text-decoration:none;transition:color 0.25s}
+.fcol a:hover{color:var(--white)}
+.foot-legal{
+  grid-column:1/-1;padding-top:2rem;margin-top:0;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.7rem;color:rgba(255,255,255,0.28);font-weight:300;
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  .sec{padding:5rem 1.8rem}
+  .stat-bar{grid-template-columns:repeat(2,1fr)}
+  .two-col,.vm-split,.mar-wrap,.adv-wrap{grid-template-columns:1fr}
+  #contact{grid-template-columns:1fr}
+  .con-left{padding:4rem 1.8rem;border-right:none;border-bottom:1px solid var(--border)}
+  .con-right{padding:4rem 1.8rem}
+  .mar-left,.adv-content{padding:4rem 1.8rem}
+  .mar-right img,.adv-img img{min-height:280px}
+  .srv-grid{grid-template-columns:1fr}
+  .elv-grid{grid-template-columns:repeat(2,1fr)}
+  .vm-pane{padding:3.5rem 1.8rem;border-right:none;border-bottom:1px solid var(--border)}
+  footer{grid-template-columns:1fr 1fr;padding:3rem 1.8rem}
+  .foot-legal{flex-direction:column;gap:0.5rem;text-align:center}
+  #cta{padding:5rem 1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#hero">
+    <span class="nav-dot"></span>
+    ARX PROVENTUS
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#maritime">Maritime</a></li>
+    <li><a href="#advantage">Advantage</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Enquire Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <img class="hero-logo"
+      src="Arx_logo_rectangle.jpg"
+      alt="ARX Proventus — Driven by Vision &amp; Trust"
+    />
+    <div class="hero-line"></div>
+    <p class="hero-eyebrow">Driven by Vision &amp; Trust</p>
+    <p class="hero-heading">
+      Global Vision.<br />
+      <strong>Unified Solutions.</strong>
+    </p>
+    <div class="hero-btns">
+      <a class="btn-solid" href="#services">Our Solutions</a>
+      <a class="btn-outline" href="#contact">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-bar"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-cell"><div class="stat-n">3+</div><div class="stat-l">Core Industry Verticals</div></div>
+  <div class="stat-cell"><div class="stat-n">Global</div><div class="stat-l">Network &amp; Market Reach</div></div>
+  <div class="stat-cell"><div class="stat-n">100%</div><div class="stat-l">Ethical &amp; Transparent Operations</div></div>
+  <div class="stat-cell"><div class="stat-n">UAE</div><div class="stat-l">Headquartered — Ras Al Khaimah</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec off">
+  <div class="two-col">
+    <div class="img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900&q=80" alt="Global maritime operations" />
+      <div class="img-badge">ARX Proventus LLC</div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">About Us</p>
+      <h2 class="sec-title">A Global <em>Multi-Industry</em> Solutions Company</h2>
+      <p class="sec-body">ARX Proventus is a global multi-industry solutions company specializing in maritime services, industrial supply, and strategic commerce. We were built on the principles of trust, transparency, and forward-thinking execution.</p>
+      <br />
+      <p class="sec-body">Our mission is to help businesses operate safely and confidently across borders by delivering reliable sourcing, accurate market insight, and efficient end-to-end support. Driven by purpose and long-term vision, we are committed to uplifting industries, strengthening partnerships, and contributing to sustainable commercial growth.</p>
+      <br />
+      <p class="sec-body">We continue to grow with a clear focus on innovation, integrity, and delivering measurable value to every client we serve.</p>
+      <br /><br />
+      <a class="btn-solid" href="#vision">Vision &amp; Mission</a>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section id="vision">
+  <div class="vm-split">
+    <div class="vm-pane reveal">
+      <div class="vm-icon">🔭</div>
+      <p class="eyebrow">Vision</p>
+      <h2 class="sec-title">Building a <em>Trusted</em> Global Ecosystem</h2>
+      <p class="sec-body">Our vision is to build a trusted global ecosystem that empowers industries through innovation, integrity, and long-term value. We aim to unify maritime, industrial, and commercial sectors under a solutions-driven approach that supports sustainable growth, responsible trade, and reliable international partnerships.</p>
+      <br />
+      <p class="sec-body">ARX Proventus strives to become a global force that uplifts businesses, strengthens communities, and contributes positively to the future of global commerce.</p>
+    </div>
+    <div class="vm-pane reveal">
+      <div class="vm-icon">🎯</div>
+      <p class="eyebrow light">Mission</p>
+      <h2 class="sec-title light">Delivering <em>Dependable</em> Intelligence</h2>
+      <p class="sec-body light">Our mission is to deliver dependable, transparent, and intelligent multi-industry solutions that help clients navigate markets with confidence. Through accurate information, ethical execution, and modern sourcing practices, we support businesses across maritime services, industrial materials, and strategic trade.</p>
+      <br />
+      <p class="sec-body light">We are committed to consistency, quality, and purpose in every interaction — ensuring every client experiences reliability, professionalism, and long-term value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="sec">
+  <div class="services-hdr reveal">
+    <p class="eyebrow" style="justify-content:center">What We Do</p>
+    <h2 class="sec-title" style="max-width:680px">Integrated <em>Solutions</em> Across Every Sector</h2>
+    <p class="sec-body">ARX Proventus provides integrated multi-industry solutions across maritime services, industrial supply, and strategic global commerce — supporting clients with reliable sourcing, accurate market insights, and end-to-end coordination.</p>
+    <div class="tags">
+      <span class="tag">Precision Execution</span>
+      <span class="tag">Global Sourcing Intelligence</span>
+      <span class="tag">Integrated Solutions Architecture</span>
+      <span class="tag">Technology &amp; Innovation</span>
+      <span class="tag">Innovation &amp; Future Advancement</span>
+      <span class="tag">Ethical Commerce &amp; Responsibility</span>
+    </div>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card reveal">
+      <div class="srv-n">01</div>
+      <h3>Maritime Services &amp; Vessel Transactions</h3>
+      <p>Vessel sale and purchase, charter assistance, and cross-border maritime transaction support — delivered with integrity, verified data, and seamless process management from sourcing to closing.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-n">02</div>
+      <h3>Industrial Supply &amp; Material Sourcing</h3>
+      <p>Reliable sourcing of industrial equipment, raw materials, and recycled resources — with full quality assurance, logistical coordination, and cross-border compliance handling.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-n">03</div>
+      <h3>Strategic Commerce &amp; Trade Coordination</h3>
+      <p>End-to-end management of cross-border commercial flows — from negotiation and documentation to final delivery — enabling clients to trade confidently in international markets.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-n">04</div>
+      <h3>Market Intelligence &amp; Advisory</h3>
+      <p>Accurate, verified market insights and strategic guidance that strengthen decision-making — helping businesses identify opportunities and navigate complex global environments with clarity.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-n">05</div>
+      <h3>Capital Integrity &amp; Financial Governance</h3>
+      <p>A disciplined governance framework ensuring every engagement meets global compliance standards — with transparent documentation and ethical capital management at every stage.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-n">06</div>
+      <h3>Global Partnership &amp; Network Access</h3>
+      <p>Access to a trusted network of shipowners, brokers, operators, suppliers, and trade specialists — creating reliable pathways for long-term international commercial alignment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARITIME -->
+<section id="maritime">
+  <div class="mar-wrap">
+    <div class="mar-left reveal">
+      <p class="eyebrow light">Maritime Services</p>
+      <h2 class="sec-title light">Precision Across <em>the Seas</em></h2>
+      <p class="sec-body light">ARX Proventus brings structured, insight-driven maritime solutions to every engagement — from vessel acquisitions and charter facilitation to cross-border trade support.</p>
+      <div class="mar-pts">
+        <div class="mar-pt">
+          <div class="mar-bullet"></div>
+          <div>
+            <div class="mar-t">Integrity in Every Transaction</div>
+            <p class="mar-b">We uphold strict ethical standards, ensuring every maritime engagement is managed with honesty, clarity, and full transparency.</p>
+          </div>
+        </div>
+        <div class="mar-pt">
+          <div class="mar-bullet"></div>
+          <div>
+            <div class="mar-t">Insight-Driven Decisions</div>
+            <p class="mar-b">Our guidance is based on accurate market intelligence, verified vessel data, and deep understanding of global shipping dynamics.</p>
+          </div>
+        </div>
+        <div class="mar-pt">
+          <div class="mar-bullet"></div>
+          <div>
+            <div class="mar-t">Global Maritime Access</div>
+            <p class="mar-b">Our network spans shipowners, brokers, operators, and specialists — providing access to trusted, high-value opportunities worldwide.</p>
+          </div>
+        </div>
+        <div class="mar-pt">
+          <div class="mar-bullet"></div>
+          <div>
+            <div class="mar-t">Seamless Execution</div>
+            <p class="mar-b">From sourcing and negotiation through to documentation and closing — disciplined processes that ensure secure and efficient maritime outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mar-right">
+      <img src="https://images.unsplash.com/photo-1591785944543-d20c53e12ed7?w=1000&q=80" alt="Maritime vessel at port" />
+    </div>
+  </div>
+</section>
+
+<!-- ELEVATING -->
+<section id="elevating" class="sec off">
+  <div style="text-align:center" class="reveal">
+    <p class="eyebrow" style="justify-content:center">Our Philosophy</p>
+    <h2 class="sec-title" style="max-width:660px;margin:0 auto 1.2rem">Elevating <em>Global Industries</em></h2>
+    <p class="sec-body" style="margin:0 auto;text-align:center;max-width:600px">At ARX Proventus, elevating global industries is more than a philosophy — it is our commitment to shaping the future of cross-border commerce through precision, intelligence, and purpose.</p>
+  </div>
+  <div class="elv-grid">
+    <div class="elv-card reveal">
+      <div class="elv-num">I</div>
+      <h4>Foundation of Trust</h4>
+      <p>Every relationship begins with responsibility, clarity, and honest communication — creating a safe and reliable starting point for global business.</p>
+    </div>
+    <div class="elv-card reveal">
+      <div class="elv-num">II</div>
+      <h4>Strength Through Clarity</h4>
+      <p>We simplify complex operations across maritime, industrial, and commercial sectors, enabling clients to make precise and confident decisions.</p>
+    </div>
+    <div class="elv-card reveal">
+      <div class="elv-num">III</div>
+      <h4>Momentum Through Capability</h4>
+      <p>Our integrated solutions drive upward progress — uniting expertise, efficiency, and cross-industry coordination to support growing ambitions.</p>
+    </div>
+    <div class="elv-card reveal">
+      <div class="elv-num">IV</div>
+      <h4>Growth Through Vision</h4>
+      <p>We help clients rise with long-term strategies that anticipate market shifts, unlock opportunities, and create lasting global impact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGE -->
+<section id="advantage">
+  <div class="adv-wrap">
+    <div class="adv-img">
+      <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1000&q=80" alt="Global shipping network" />
+    </div>
+    <div class="adv-content reveal">
+      <p class="eyebrow">The ARX Advantage</p>
+      <h2 class="sec-title">Why Partners <em>Choose</em> ARX Proventus</h2>
+      <p class="sec-body">Our extensive global network, deep market knowledge, and solutions-first philosophy give clients a decisive edge in cross-border commerce — consistently and reliably.</p>
+      <div class="adv-list">
+        <div class="adv-row">
+          <div class="adv-ico">📊</div>
+          <div><h4>Global Trade Intelligence</h4><p>We empower decisions with verified data, disciplined analysis, and continuous monitoring of global commercial movements.</p></div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-ico">🔒</div>
+          <div><h4>Protected Trade Ecosystems</h4><p>Every cross-border engagement is safeguarded through ethical processes, structured compliance, and responsible oversight.</p></div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-ico">🌐</div>
+          <div><h4>Cross-Border Partnership Building</h4><p>We cultivate trusted relationships across regions and industries, creating reliable pathways for long-term commercial alignment.</p></div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-ico">📈</div>
+          <div><h4>Pathways to Global Growth</h4><p>Disciplined execution opens secure access to new markets, enabling clients to scale confidently in international trade.</p></div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-ico">💡</div>
+          <div><h4>Thought Leadership &amp; Market Adaptability</h4><p>Recognized industry expertise and a continuously evolving approach that keeps clients ahead of changing dynamics.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section id="governance" class="sec">
+  <div class="two-col">
+    <div class="reveal">
+      <p class="eyebrow">Governance</p>
+      <h2 class="sec-title">Capital Integrity <em>&amp; Governance</em></h2>
+      <p class="sec-body">We uphold a governance framework defined by precision, transparency, and ethical capital management. ARX Proventus adheres to disciplined financial protocols ensuring every engagement is executed responsibly and in full compliance with global standards.</p>
+      <br />
+      <p class="sec-body">Our clients benefit from a secure financial ecosystem where clarity, documentation strength, and trusted oversight create a foundation for long-term partnerships and confident decision-making.</p>
+      <blockquote class="gov-quote">"Every client experiences reliability, professionalism, and long-term value while working with ARX Proventus."</blockquote>
+    </div>
+    <div class="img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80" alt="Governance and compliance" />
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <p class="eyebrow light" style="justify-content:center">Begin Here</p>
+  <h2 class="cta-hed">The Future of Global Commerce<br /><em>Begins Here.</em></h2>
+  <p class="cta-sub">ARX Proventus stands as a force committed to reshaping how global business operates — building an ecosystem that connects industries, empowers enterprises, and creates pathways for sustainable progress.</p>
+  <div class="cta-btns">
+    <a class="btn-white" href="#contact">Begin a Conversation</a>
+    <a class="btn-ghost-w" href="#services">Explore Solutions</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="con-left reveal">
+    <p class="eyebrow">Contact Us</p>
+    <h2 class="sec-title">Let's Build Something <em>Together</em></h2>
+    <p class="sec-body">Whether you are seeking maritime solutions, industrial supply, or strategic consultation — our team is ready to assist with a confidential, no-obligation discussion.</p>
+    <ul class="con-list">
+      <li><span class="ci">🏢</span>ARX Proventus LLC, Ras Al Khaimah, UAE</li>
+      <li><span class="ci">📞</span>+971-55-9606933</li>
+      <li><span class="ci">✉</span>business@arxproventus.com</li>
+      <li><span class="ci">🌐</span>www.arxproventus.com</li>
+    </ul>
+  </div>
+  <div class="con-right reveal">
+    <form class="con-form" onsubmit="subForm(event)">
+      <div class="frow">
+        <div class="fg"><label for="fn">First Name</label><input type="text" id="fn" placeholder="John" required /></div>
+        <div class="fg"><label for="ln">Last Name</label><input type="text" id="ln" placeholder="Smith" required /></div>
+      </div>
+      <div class="fg"><label for="em">Email Address</label><input type="email" id="em" placeholder="john@company.com" required /></div>
+      <div class="fg"><label for="co">Company / Organisation</label><input type="text" id="co" placeholder="Your organisation" /></div>
+      <div class="fg">
+        <label for="sv">Area of Interest</label>
+        <select id="sv">
+          <option value="">Select a service...</option>
+          <option>Maritime Services &amp; Vessel Transactions</option>
+          <option>Industrial Supply &amp; Material Sourcing</option>
+          <option>Strategic Commerce &amp; Trade</option>
+          <option>Market Intelligence &amp; Advisory</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="fg"><label for="msg">Message</label><textarea id="msg" placeholder="Please describe your enquiry..." required></textarea></div>
+      <button type="submit" class="sub-btn">Send Enquiry</button>
+      <p id="form-ok">Thank you — we will be in touch shortly.</p>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">ARX PROVENTUS</div>
+    <p class="foot-tag">Global Vision. Unified Solutions.<br />Driven by Vision &amp; Trust.<br />ARX Proventus LLC — Ras Al Khaimah, UAE</p>
+  </div>
+  <div class="fcol">
+    <h5>Services</h5>
+    <ul>
+      <li><a href="#services">Maritime Services</a></li>
+      <li><a href="#services">Industrial Supply</a></li>
+      <li><a href="#services">Strategic Commerce</a></li>
+      <li><a href="#services">Trade Coordination</a></li>
+      <li><a href="#services">Market Intelligence</a></li>
+    </ul>
+  </div>
+  <div class="fcol">
+    <h5>Company</h5>
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#vision">Vision &amp; Mission</a></li>
+      <li><a href="#elevating">Philosophy</a></li>
+      <li><a href="#advantage">The ARX Advantage</a></li>
+      <li><a href="#governance">Governance</a></li>
+    </ul>
+  </div>
+  <div class="fcol">
+    <h5>Contact</h5>
+    <ul>
+      <li><a href="mailto:business@arxproventus.com">business@arxproventus.com</a></li>
+      <li><a href="tel:+971559606933">+971-55-9606933</a></li>
+      <li><a href="#contact">Send an Enquiry</a></li>
+    </ul>
+  </div>
+  <div class="foot-legal">
+    <span>© 2025 ARX Proventus LLC. All rights reserved.</span>
+    <span>Ras Al Khaimah, United Arab Emirates</span>
+  </div>
+</footer>
+
+<script>
+function subForm(e){
+  e.preventDefault();
+  document.getElementById('form-ok').style.display='block';
+  e.target.reset();
+}
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(el=>{
+    if(el.isIntersecting){
+      el.target.classList.add('on');
+      io.unobserve(el.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
